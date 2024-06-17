@@ -27,8 +27,8 @@ public class Bike {
                Modelo: %s
                Color: %s
                ---------------------
-               Precio: $%s
-               Cuotas: %s
+               Precio: $%.2f
+               Cuotas: %d
                """.formatted(tipo, marca, modelo, color, precio, id);
     }
 }
