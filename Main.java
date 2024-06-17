@@ -16,7 +16,7 @@ public class Main {
         builder.modelo("Domane");
         builder.precio(15000);
         builder.id(0);
-        System.out.println(builder.build());
+        System.out.println(builder.build().toString().replace("¬", "\n"));
 
         try {
             double valorCuota = calcularValorCuota(builder.getPrecio(), builder.getId());
@@ -36,7 +36,7 @@ public class Main {
         builder.modelo("Domane");
         builder.precio(15000);
         builder.id(5);
-        System.out.println(builder.build());
+        System.out.println(builder.build().toString().replace("¬", "\n"));
 
         try {
             double valorCuota = calcularValorCuota(builder.getPrecio(), builder.getId());
