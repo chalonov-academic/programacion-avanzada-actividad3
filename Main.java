@@ -3,6 +3,7 @@ import builder.*;
 import java.io.*;
 
 import static funciones.Funciones.calcularValorCuota;
+import customExceptions.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -104,7 +105,7 @@ public class Main {
         }
 
         System.out.println();
-        
+
         try {
             // Crear un objeto FileReader para leer el archivo
             FileReader fileReader = new FileReader("pedido.txt");
@@ -138,7 +139,86 @@ public class Main {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
 
+        System.out.println();
+        System.out.println();
+        System.out.println();
 
+        // Excepciones personalizadas
+
+        System.out.println("----------------------------------------------");
+        System.out.println("-----------VALIDADOR DE CONTRASEÑAS-----------");
+        System.out.println("- Más de 8 caracteres");
+        System.out.println("- Al menos un numero y una letra");
+        System.out.println("- Al menos una mayúscula y una minúscula");
+
+        System.out.println();
+        String password1 = "abc123";
+        System.out.println("Ejemplo 1 -> Contraseña: " + password1);
+
+        try {
+            PasswordValidator.validatePassword(password1);
+        } catch (PasswordLengthException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        } catch (InvalidPasswordFormatException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        } catch (PasswordCaseException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        }
+
+        System.out.println();
+        String password2 = "Abcdefghi";
+        System.out.println("Ejemplo 2 -> Contraseña: " + password2);
+
+        try {
+            PasswordValidator.validatePassword(password2);
+        } catch (PasswordLengthException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        } catch (InvalidPasswordFormatException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        } catch (PasswordCaseException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        }
+
+        System.out.println();
+        String password3 = "abc123ghi";
+        System.out.println("Ejemplo 3 -> Contraseña: " + password3);
+
+        try {
+            PasswordValidator.validatePassword(password3);
+        } catch (PasswordLengthException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        } catch (InvalidPasswordFormatException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        } catch (PasswordCaseException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        }
+
+        System.out.println();
+        String password4 = "abc123Def";
+        System.out.println("Ejemplo 4 -> Contraseña: " + password4);
+
+        try {
+            PasswordValidator.validatePassword(password4);
+        } catch (PasswordLengthException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        } catch (InvalidPasswordFormatException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        } catch (PasswordCaseException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Contraseña ingresada: " + e.getPassword());
+        }
 
     }
+
 }
