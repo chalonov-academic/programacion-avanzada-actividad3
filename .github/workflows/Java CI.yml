@@ -20,6 +20,22 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
 
+    - name: Download and Install SpotBugs
+      run: |
+        curl -L https://github.com/spotbugs/spotbugs/releases/download/4.5.3/spotbugs-4.5.3.tgz -o spotbugs.tgz
+        tar -xzf spotbugs.tgz
+        sudo mv spotbugs-4.5.3 /opt/spotbugs
+        sudo ln -s /opt/spotbugs/bin/spotbugs /usr/local/bin/spotbugs
+        sudo chmod +x /opt/spotbugs/bin/spotbugs
+    - name: Clean previous builds
+      run: find . -name "*.class" -type f -delete
+      
+    - name: Compile Java
+      run: javac *.java
+
+    - name: Run SpotBugs
+      run: spotbugs -textui -effort:max -high Builder.class
+
     - name: Run Java
       run: java Main
 
@@ -30,9 +46,8 @@ jobs:
         sudo mv dependency-check /opt/dependency-check
         sudo chmod +x /opt/dependency-check/bin/dependency-check.sh
         sudo ln -s /opt/dependency-check/bin/dependency-check.sh /usr/local/bin/dependency-check.sh
-
     - name: Run OWASP Dependency-Check
-      run: dependency-check.sh --project Pez --scan . --disableAssembly
+      run: dependency-check.sh --project MiExcepcion --scan . --disableAssembly
 
     - name: Create Dockerfile
       run: |
@@ -41,7 +56,6 @@ jobs:
         echo 'COPY . /app' >> Dockerfile
         echo 'RUN javac *.java' >> Dockerfile
         echo 'CMD ["java", "Main"]' >> Dockerfile
-
     - name: Build Docker image
       run: docker build -t java-app .
 
