@@ -34,7 +34,7 @@ jobs:
       run: javac *.java
 
     - name: Run SpotBugs
-      run: spotbugs -textui -effort:max -high Builder.class
+      run: spotbugs -textui -effort:max -high builder/Builder.class
 
     - name: Run Java
       run: java Main
