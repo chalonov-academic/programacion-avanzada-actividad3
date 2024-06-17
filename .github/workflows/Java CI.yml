@@ -28,12 +28,6 @@ jobs:
         sudo ln -s /opt/spotbugs/bin/spotbugs /usr/local/bin/spotbugs
         sudo chmod +x /opt/spotbugs/bin/spotbugs
 
-    - name: Clean previous builds
-      run: find . -name "*.class" -type f -delete
-      
-    - name: Compile Java
-      run: javac *.java
-
     - name: Run SpotBugs
       run: spotbugs -textui -effort:max -high Main.class
 
