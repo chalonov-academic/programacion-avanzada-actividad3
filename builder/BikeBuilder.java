@@ -1,7 +1,7 @@
 package builder;
 
 public class BikeBuilder implements Builder{
-    private int id;
+    private int cuotas;
     private String tipo;
     private String marca;
     private String modelo;
@@ -9,13 +9,13 @@ public class BikeBuilder implements Builder{
     private double precio;
 
     @Override
-    public BikeBuilder id(int id) {
-        this.id = id;
+    public BikeBuilder cuotas(int cuotas) {
+        this.cuotas = cuotas;
         return this;
     }
 
-    public int getId() {
-        return id;
+    public int getCuotas() {
+        return cuotas;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class BikeBuilder implements Builder{
     }
 
     public Bike build(){
-        return new Bike(id, tipo, marca, modelo, color, precio);
+        return new Bike(cuotas, tipo, marca, modelo, color, precio);
     }
 
 }

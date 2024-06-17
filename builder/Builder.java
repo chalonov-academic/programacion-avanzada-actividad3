@@ -1,7 +1,7 @@
 package builder;
 
 public interface Builder {
-    Builder id (int id);
+    Builder cuotas(int cuotas);
     Builder tipo (String tipo);
     Builder marca (String marca);
     Builder modelo (String modelo);

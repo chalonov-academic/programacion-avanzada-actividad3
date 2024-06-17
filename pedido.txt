@@ -1,0 +1,10 @@
+
+Pedido 
+------------------
+Producto: Bicicleta
+- Tipo: Ruta
+- Marca: Trek
+- Modelo: Madone
+- Color: Azul
+- Precio: $15000,00
+- Cuotas: 5
