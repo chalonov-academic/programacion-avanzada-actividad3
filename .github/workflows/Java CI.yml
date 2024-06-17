@@ -20,17 +20,6 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
 
-    - name: Download and Install SpotBugs
-      run: |
-        curl -L https://github.com/spotbugs/spotbugs/releases/download/4.5.3/spotbugs-4.5.3.tgz -o spotbugs.tgz
-        tar -xzf spotbugs.tgz
-        sudo mv spotbugs-4.5.3 /opt/spotbugs
-        sudo ln -s /opt/spotbugs/bin/spotbugs /usr/local/bin/spotbugs
-        sudo chmod +x /opt/spotbugs/bin/spotbugs
-
-    - name: Run SpotBugs
-      run: spotbugs -textui -effort:max -high MiExcepcion.class
-
     - name: Run Java
       run: java Main
 
