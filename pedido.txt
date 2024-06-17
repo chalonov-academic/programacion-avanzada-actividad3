@@ -1,5 +1,4 @@
-
-Pedido 
+No. Pedido 
 ------------------
 Producto: Bicicleta
 - Tipo: Ruta

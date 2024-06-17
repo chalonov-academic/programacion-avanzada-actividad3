@@ -9,6 +9,7 @@ public class Main {
 
         System.out.println("--------------------------------------------------------------");
         System.out.println("Ejemplo 1 - Calcular el número de cuotas a pagar por un pedido");
+        System.out.println();
 
         Director pedido1 = new Director();
         BikeBuilder builder = new BikeBuilder();
@@ -32,11 +33,13 @@ public class Main {
         System.out.println("--------------------------------------------------------------");
         System.out.println("Ejemplo 2 - Guardar y leer un archivo con los datos del pedido");
         System.out.println("- Fixed: Número de cuotas mayor a cero -> OK");
+        System.out.println();
 
         Director pedido2 = new Director();
         pedido2.buildBike(builder);
         builder.cuotas(5);
         System.out.println(builder.build().toString().replace("*", "\n"));
+        System.out.println();
 
         try {
             double valorCuota = calcularValorCuota(builder.getPrecio(), builder.getCuotas());
@@ -74,8 +77,9 @@ public class Main {
 
         System.out.println();
         System.out.println("--------------------------------------------------------------");
-        System.out.println("Ejemplo 3 - Leer la primera linea y convertirla en una variables int");
+        System.out.println("Ejemplo 3 - Leer la primera linea y convertirla en una variable int");
         System.out.println("- Fixed: Se indica el archivo correcto (pedido.txt) -> OK");
+        System.out.println();
 
         try {
             // Crear un objeto FileReader para leer el archivo
@@ -98,6 +102,43 @@ public class Main {
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
+
+        System.out.println();
+        
+        try {
+            // Crear un objeto FileReader para leer el archivo
+            FileReader fileReader = new FileReader("pedido.txt");
+
+            // Crear un objeto BufferedReader para leer de forma más eficiente
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String primeraLinea = bufferedReader.readLine();
+
+            // Imprimir la primera línea
+            if (primeraLinea != null) {
+                System.out.println("Primera línea: " + primeraLinea);
+            } else {
+                System.out.println("El archivo está vacío.");
+            }
+
+            int valor;
+
+            try {
+                valor = Integer.parseInt(primeraLinea);
+                System.out.println("El valor es: " + valor);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+
+            // Cerrar el BufferedReader y el FileReader
+            bufferedReader.close();
+            fileReader.close();
+
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+
+
 
     }
 }

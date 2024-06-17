@@ -18,6 +18,6 @@ public class Bike {
     }
 
     public String toString(){
-        return "*Pedido *------------------*Producto: Bicicleta*- Tipo: %s*- Marca: %s*- Modelo: %s*- Color: %s*- Precio: $%.2f*- Cuotas: %d*".formatted(tipo, marca, modelo, color, precio, cuotas).replace("\n", "*");
+        return "No. Pedido *------------------*Producto: Bicicleta*- Tipo: %s*- Marca: %s*- Modelo: %s*- Color: %s*- Precio: $%.2f*- Cuotas: %d*".formatted(tipo, marca, modelo, color, precio, cuotas).replace("\n", "*");
     }
 }
